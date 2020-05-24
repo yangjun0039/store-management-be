@@ -1,0 +1,42 @@
+
+
+[server]
+port = 8808
+protocol = "HTTP"
+
+
+[key]
+certificate = "./crtkey/server.crt"
+private = "./crtkey/priserver.key"
+
+[[mysql]]
+name = "master"
+dsn = "root:03050039@tcp(127.0.0.1)/store_management?charset=utf8mb4&autocommit=1"
+# root:1@tcp(47.101.186.93:3306)/nebulaim?timeout=5s&readTimeout=5s&writeTimeout=5s&parseTime=true&loc=Local&charset=utf8,utf8mb4"
+active = 500
+idle = 50
+
+[[mysql]]
+name = "slave"
+dsn = "root:03050039@tcp(127.0.0.1)/kexinim?charset=utf8mb4&autocommit=1"
+# root:1@tcp(47.101.186.93:3306)/nebulaim?timeout=5s&readTimeout=5s&writeTimeout=5s&parseTime=true&loc=Local&charset=utf8,utf8mb4"
+active = 500
+idle = 50
+
+
+# [[redis]]
+# name = "store"
+# addr = "127.0.0.1:6379"
+# idle = 100
+# active = 0
+# dialTimeout = "1s"
+# readTimeout = "1s"
+# writeTimeout = "1s"
+# idleTimeout = "10s"
+# dbNum = "0"
+# password = ""
+
+[redis]
+db = 0
+password = ""
+address = "127.0.0.1:6379"
