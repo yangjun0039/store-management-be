@@ -8,7 +8,7 @@ import (
 	"store-management-be/database/redis"
 )
 
-func GetMsg(w http.ResponseWriter, r *http.Request) {
+func GetMsg(requester *network.Requester, w http.ResponseWriter, r *http.Request) {
 	logger.LogSugar.Infof("url:%v", r.URL.Path)
 
 	_,err := model.QryMasterData()

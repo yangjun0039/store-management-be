@@ -34,39 +34,39 @@ func (this networkFailure) Code() string {
 func (this networkFailure) ErrorMsg() string {
 	switch this {
 	case jsonSerializationFailure:
-		return "json序列化失败"
+		return "json序列化失败,"
 	case xmlSerializationFailure:
-		return "xml序列化失败"
+		return "xml序列化失败,"
 	case invalidJSONWebToken:
-		return "invalid jwt"
+		return "invalid jwt,"
 	case lackParameter:
-		return "authorization is lacked"
+		return "authorization is lacked,"
 	case responseTimeout:
-		return "response timeout"
+		return "response timeout,"
 	case requestIsTooOften:
-		return "request is too often"
+		return "request is too often,"
 	case unknownPanic:
-		return "未知的panic"
+		return "未知的panic,"
 	case invalidAccount:
-		return "invalid Account"
+		return "invalid Account,"
 	case invalidpubKey:
-		return "invalid PubKey"
+		return "invalid PubKey,"
 	case invalidDelegate:
-		return "invalid delegate"
+		return "invalid delegate,"
 	case verificationIsFailed:
-		return "signature verification is failed"
+		return "signature verification is failed,"
 	case invalidIP:
-		return "invalid IP"
+		return "invalid IP,"
 	case secretKeyFailure:
-		return "secret key failure"
+		return "secret key failure,"
 	case permissionNotAllow:
-		return "permission not allow"
+		return "permission not allow,"
 	case parameterFail:
-		return "parameter error"
+		return "parameter error,"
 	case rsaDecrpptFail:
-		return "rsa decrypt error"
+		return "rsa decrypt error,"
 	case nonceVerifyFail:
-		return "nonce verify error"
+		return "nonce verify error,"
 	default:
 		return DiscardMsg
 	}

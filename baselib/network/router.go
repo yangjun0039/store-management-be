@@ -75,7 +75,6 @@ func (r *Router) Startup(protocol NetProtocol, port uint64) {
 		keyFile := configer.Conf.Key.Private
 		logger.LogSugar.Infof("https server start up, port:%d", port)
 		server.ListenAndServeTLS(certFile, keyFile)
-
 	} else if protocol == HTTP {
 		logger.LogSugar.Infof("http server start up, port:%d", port)
 		server.ListenAndServe()

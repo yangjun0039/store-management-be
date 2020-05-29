@@ -6,6 +6,7 @@ type ResponseRecorder struct {
 	Status    int
 	uuid      string
 	jsonBytes []byte
+	delegate  Delegate
 	w         http.ResponseWriter
 }
 

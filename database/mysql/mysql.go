@@ -79,7 +79,7 @@ func (self *Db) Insert(sqlstr string, args ...interface{}) (int64, error) {
 }
 
 // 插入(有事务处理) 调用时不用Rollback
-func (self *Db) InsertTx(tx *sqlx.Tx, sqlstr string, args ...interface{}) (int64, error) {
+func (self *Db) InsertTx(tx *sql.Tx, sqlstr string, args ...interface{}) (int64, error) {
 	if self == nil {
 		return 0, dbNilError
 	}
@@ -97,7 +97,7 @@ func (self *Db) InsertTx(tx *sqlx.Tx, sqlstr string, args ...interface{}) (int64
 }
 
 // 修改和删除(有事务处理) 调用时不用Rollback
-func (self *Db) ExecTx(tx *sqlx.Tx, sqlstr string, args ...interface{}) (int64, error) {
+func (self *Db) ExecTx(tx *sql.Tx, sqlstr string, args ...interface{}) (int64, error) {
 	if self == nil {
 		tx.Rollback()
 		return 0, dbNilError

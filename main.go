@@ -8,6 +8,8 @@ import (
 	"store-management-be/baselib/logger"
 	"store-management-be/database/mysql"
 	"store-management-be/database/redis"
+	"store-management-be/application/auth"
+	user "store-management-be/application/user_management"
 )
 
 var (
@@ -40,8 +42,10 @@ func initConfig() {
 func start(protocol network.NetProtocol, port int) {
 	Sugar.Info("start server")
 	r := network.NewRouter(nil)
-	example.RouterRegisterMethods(r)
 
-	//http.ListenAndServe(addr, r)
+	example.MountSubrouterOn(r)
+	auth.MountSubrouterOn(r)
+	user.MountSubrouterOn(r)
+
 	r.Startup(protocol, uint64(port))
 }
